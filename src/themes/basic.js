@@ -1,0 +1,27 @@
+const basicTheme = {
+  whiteBg: '#FFF',
+  lightGray: '#F8F8F8',
+  lightGray2: '#F2F2F2',
+  lightGreen: '#ECF2EE',
+  gray: '#E7E7E7',
+  silver: '#C1C1C4',
+  darkGray: '#868686',
+  darkGray1: '#5F6D79',
+  spaceGray: '#455059',
+  lightBlack: '#222',
+  lightBlue: '#4490ff',
+  blue: '#4285F4',
+  mint: '#33BCD2',
+  mint2: '#75C5C5',
+  green: '#57D18C',
+  green2: '#22B160',
+  darkGreen: '#199F9E',
+  orange: '#FE9A04',
+  red: '#EA4335',
+  favicon: '/assets/images/favicon.png',
+  mainLogo: '/assets/images/light-logo.svg',
+  boxShadow: '0px 0px 1px 1px rgba(0, 0, 0, 0.07)',
+  boxShadowLight: '0px 1px 4px 0px rgba(0, 0, 0, 0.07)',
+};
+
+export default basicTheme;

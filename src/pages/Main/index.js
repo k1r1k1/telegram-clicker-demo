@@ -1,7 +1,8 @@
-import logo from './logo.svg';
+import React from 'react';
+import logo from '../../logo.svg';
 import './App.css';
 
-function App() {
+function MainPage() {
   return (
     <div className="App">
       <header className="App-header">
@@ -22,4 +23,4 @@ function App() {
   );
 }
 
-export default App;
+export default MainPage;
