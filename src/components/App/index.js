@@ -2,7 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Route, Routes } from 'react-router';
 import MainPage from 'pages/Main';
-import { HOME, WALLET } from 'constants/routes';
+import { HOME, GHOME, WALLET } from 'constants/routes';
 import ConnectWallet from 'pages/ConnectWallet';
 import { ThemeProvider } from 'styled-components';
 import basicTheme from 'themes/basic';
@@ -22,6 +22,7 @@ function Router() {
       </Helmet>
       <Routes>
         <Route exact path={HOME} element={<MainPage />} />
+        <Route exact path={GHOME} element={<MainPage />} />
         <Route path={WALLET} element={<ConnectWallet />} />
       </Routes>
     </>
