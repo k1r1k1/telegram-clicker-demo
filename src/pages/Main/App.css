@@ -48,6 +48,13 @@ code {
   border: none;
 }
 
+.head-buttons {
+  display: flex;
+  position: fixed;
+  top: 0;
+  padding: 14px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

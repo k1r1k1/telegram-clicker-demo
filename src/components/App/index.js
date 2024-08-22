@@ -1,15 +1,22 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Route, Routes } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
+import { TonConnectUIProvider, useIsConnectionRestored } from '@tonconnect/ui-react';
+import { ThemeProvider } from 'styled-components';
+
 import MainPage from 'pages/Main';
 import { HOME, GHOME, WALLET } from 'constants/routes';
 import ConnectWallet from 'pages/ConnectWallet';
-import { ThemeProvider } from 'styled-components';
 import basicTheme from 'themes/basic';
-import { BrowserRouter } from 'react-router-dom';
+
+// this manifest is used temporarily for development purposes
+const manifestUrl = 'https://raw.githubusercontent.com/ton-community/tutorials/main/03-client/test/public/tonconnect-manifest.json';
 
 function Router() {
-  return (
+  const connectionRestored = useIsConnectionRestored();
+
+  return connectionRestored ? (
     <>
       <Helmet>
         <title>Clicker Clicker | Game</title>
@@ -26,15 +33,17 @@ function Router() {
         <Route path={WALLET} element={<ConnectWallet />} />
       </Routes>
     </>
-  );
+  ) : (<h3>Loading...</h3>);
 }
 
 function App() {
   return (
     <ThemeProvider theme={basicTheme}>
-      <BrowserRouter>
-        <Router />
-      </BrowserRouter>
+      <TonConnectUIProvider manifestUrl={manifestUrl}>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </TonConnectUIProvider>
     </ThemeProvider>
   );
 }
