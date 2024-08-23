@@ -37,7 +37,7 @@ export const ButtonClicker = styled.button`
 `;
 
 export const AppLogo = styled.img`
-  height: ${({ $multiplier }) => `${40 + ($multiplier * 4)}vmin;`};
+  height: ${({ $multiplier }) => `${40 + (($multiplier > 20 ? 20 : $multiplier) * 4)}vmin;`};
   animation: ${({ $multiplier }) => `App-logo-spin infinite ${20 / ($multiplier || 1)}s linear;`}
   filter: ${({ $multiplier }) => `hue-rotate(${($multiplier || 1) * 17}deg);`}
 

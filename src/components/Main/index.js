@@ -30,6 +30,15 @@ function MainPageComponent() {
       .catch((e) => console.warn(e));
   };
 
+  const timeout = setTimeout(() => {
+    if (clicks > 0) setClicks(clicks - 1);
+  }, 500);
+
+  const handleClick = () => {
+    setClicks(clicks + 1);
+    clearTimeout(timeout);
+  };
+
   console.log({ userFriendlyAddress, userAddress, wallet });
 
   return (
@@ -45,10 +54,10 @@ function MainPageComponent() {
         )}
       </TopButtons>
       <ReactSpinnerContainer>
-        <span>Clicks: {clicks}</span>
+        <span>Power: {clicks}</span>
         <ButtonClicker
           type="button"
-          onClick={() => setClicks(clicks + 1)}
+          onClick={handleClick}
         >
           <AppLogo
             src={logo}
@@ -57,7 +66,7 @@ function MainPageComponent() {
           />
         </ButtonClicker>
         <ReactLink
-          href="https://reactjs.org"
+          href="https://react.dev/"
           target="_blank"
           rel="noopener noreferrer"
         >

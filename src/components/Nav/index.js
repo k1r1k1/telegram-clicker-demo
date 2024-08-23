@@ -27,7 +27,7 @@ function Nav() {
         </Link>
         <Link to={SEARCH}>
           {pathname.indexOf(SEARCH) !== -1 ? <SearchActive /> : <Search />}
-          <NavLabel $active={pathname.indexOf(SEARCH) !== -1}>Search</NavLabel>
+          <NavLabel $active={pathname.indexOf(SEARCH) !== -1}>Soon</NavLabel>
         </Link>
         <Link to={pathname !== WALLET && WALLET}>
           {pathname === WALLET ? <UserActive /> : <User />}
