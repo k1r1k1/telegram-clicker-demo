@@ -4,17 +4,21 @@ import { Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 import { TonConnectUIProvider, useIsConnectionRestored } from '@tonconnect/ui-react';
 import { ThemeProvider } from 'styled-components';
+import WebApp from '@twa-dev/sdk';
 
 import MainPage from 'pages/Main';
-import { HOME, GHOME, WALLET } from 'constants/routes';
+import {
+  HOME, GHOME, WALLET, SEARCH,
+} from 'constants/routes';
 import ConnectWallet from 'pages/ConnectWallet';
 import basicTheme from 'themes/basic';
+import SearchPage from 'pages/Search';
 
-// this manifest is used temporarily for development purposes
-const manifestUrl = 'https://raw.githubusercontent.com/ton-community/tutorials/main/03-client/test/public/tonconnect-manifest.json';
+const manifestUrl = 'https://raw.githubusercontent.com/k1r1k1/telegram-clicker-build/main/tonconnect-manifest.json';
 
 function Router() {
   const connectionRestored = useIsConnectionRestored();
+  if (connectionRestored) WebApp.expand();
 
   return connectionRestored ? (
     <>
@@ -28,8 +32,8 @@ function Router() {
         />
       </Helmet>
       <Routes>
-        <Route exact path={HOME} element={<MainPage />} />
-        <Route exact path={GHOME} element={<MainPage />} />
+        <Route path={HOME} element={<MainPage />} />
+        <Route path={SEARCH} element={<SearchPage />} />
         <Route path={WALLET} element={<ConnectWallet />} />
       </Routes>
     </>
@@ -40,7 +44,7 @@ function App() {
   return (
     <ThemeProvider theme={basicTheme}>
       <TonConnectUIProvider manifestUrl={manifestUrl}>
-        <BrowserRouter>
+        <BrowserRouter basename={GHOME}>
           <Router />
         </BrowserRouter>
       </TonConnectUIProvider>

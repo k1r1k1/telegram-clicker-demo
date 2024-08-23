@@ -1,11 +1,14 @@
+import ConnectWallet from 'components/ConnectWallet';
+import Nav from 'components/Nav';
 import React from 'react';
 
-function ConnectWallet() {
+function ConnectWalletPage() {
   return (
-    <div>
-      <h1>Connect Wallet</h1>
-    </div>
+    <>
+      <ConnectWallet />
+      <Nav />
+    </>
   );
 }
 
-export default ConnectWallet;
+export default ConnectWalletPage;
